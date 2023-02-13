@@ -9,14 +9,21 @@
 
 // DEPENENCIES
 let startButton = document.querySelector("#start");
-
+let timeLeftEl = document.querySelector("#timeLeft")
+let timerID; 
+let timeLeft = 120;
 // FUNCTIONS
-
+function oneSecondHandler() {
+    timeLeft--;
+    timeLeftEl.textContent = timeLeft;
+}
 // USER INTERACTIONS 
 // when the user clicks start, they are taken to the first question
 function startGame() {
     console.log("Game Started");
     // countdown timer at 120 seconds starts 
+    timerID = setInterval(oneSecondHandler, 1000);
+    timeLeftEl.textContent = timeLeft;
     // user is prompted to select one of the answers
     // if correct answer is selected, next question is displayed
     // if incorrect answer is selected, 10 seconds is deducted from the timer
@@ -25,5 +32,3 @@ function startGame() {
 
 startButton.addEventListener("click", startGame);
 // when the user clicks start, a timer countdown starts 
-
-console.log("Testing this.")

@@ -11,12 +11,30 @@
 <body>
     <header>
         <h3>View High Scores</h3>
-        <h3>Ready To Play</h3>
+        <h3>Time Left: <span id="timeLeft"></span></h3>
     </header>
     <main>
-        <h2>Coding Quiz Challenge</h2>
-        <button id="start">Start</button>
+        <div id="start-div">
+            <h2>Coding Quiz Challenge</h2>
+            <button id="start">Start</button>
+        </div>
+        <div id="questions" class="hide">
+            <h2 id="question-title">To be populated.</h2>
+            <button id="answer1">Test Answer 1</button>
+            <button id="answer2">Test Answer 2</button>
+            <button id="answer3">Test Answer 3</button>
+            <button id="answer4">Test Answer 4</button>
+        </div>
+        <div id="rightWrong" class="hide">
+            <p id="">Option</p>
+        </div>
+        <div id="endScreen" class="hide">
+            <h2>Game Over.</h2>
+            <p>Your final score is <span id="finalScore"></span></p>
+            <p>Enter initials: <input type="text" id="initials" max="3"></p>
+            <button id="submit">Submit</button>
+        </div>
     </main>
-    <script scr="./assets/js/script.js"></script>
+    <script src="./assets/js/script.js"></script>
 </body>
 </html>
