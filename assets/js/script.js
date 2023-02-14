@@ -10,44 +10,44 @@
 // DEPENENCIES
 let questions = [
     {
-        q: "Q1",
+        q: "In the UK, the abbreviation NHS stands for National what Service?",
         a: [
-            "A1",
-            "A2",
-            "A3",
-            "A4",
+            "1. Humanity",
+            "2. Health",
+            "3. Honour",
+            "4. Household",
         ],
-        ca: "A3",
+        ca: "2. Health",
     },    
     {
-        q: "Q2",
+        q: "Which Disney character famously leaves a glass slipper behind at a royal ball?",
         a: [
-            "A1",
-            "A2",
-            "A3",
-            "A4",
+            "1. Pocahontas",
+            "2. Sleeping Beauty",
+            "3. Cinderella",
+            "4. Elsa",
         ],
-        ca: "A4",
+        ca: "3. Cinderella",
     },     
     {
-        q: "Q3",
+        q: "What does the word loquacious mean?",
         a: [
-            "A1",
-            "A2",
-            "A3",
-            "A4",
+            "1. Angry",
+            "2. Chatty",
+            "3. Beautiful",
+            "4. Shy",
         ],
-        ca: "A1",
+        ca: "2. Chatty",
     },     
     {
-        q: "Q4",
+        q: "Which of these religious observances lasts for the shortest period of time during the calendar year?",
         a: [
-            "A1",
-            "A2",
-            "A3",
-            "A4",
+            "1. Ramadan",
+            "2. Diwali",
+            "3. Lent",
+            "4. Hanukkah",
         ],
-        ca: "A3",
+        ca: "2. Diwali",
     },
 ]
 let startButton = document.querySelector("#start");
@@ -59,6 +59,7 @@ let answer1 = document.querySelector("#answer1");
 let answer2 = document.querySelector("#answer2");
 let answer3 = document.querySelector("#answer3");
 let answer4 = document.querySelector("#answer4");
+let rightWrong = document.querySelector("#rightWrong")
 let timerID; 
 let timeLeft = 120;
 let currentIndex = 0;
@@ -76,11 +77,31 @@ function endGame(){
     // to be completed 
 }
 function handleAnswer(event) {
-    // to be completed 
+    let button = event.target; 
+    if (button.textContent !== currentQuestion.ca) {
+        rightWrong.textContent - "Wrong."
+        timeLeft -= 15; 
+        if (timeLeft < 0) {
+            timeLeft === O
+        }
+        timeLeftEl.textContent = timeLeft;
+    } else {
+        rightWrong.textContent - "Right!";
+    }
+    rightWrong.removeAttribute("class");
+    setTimeout(function(){
+        rightWrong.setAttribute("class", "hide");
+    }, 1000)
+    currentIndex++;
+    if (timeLeft <= 0 || currentIndex === questions.length) {
+        endGame()
+    } else {
+        showQuestion()
+    }
 }
 
 function showQuestion(){
-    let currentQuestion = questions[currentIndex];
+    currentQuestion = questions[currentIndex];
     questionTitle.textContent = currentQuestion.q;
     answer1.textContent = currentQuestion.a[0];
     answer2.textContent = currentQuestion.a[1];
