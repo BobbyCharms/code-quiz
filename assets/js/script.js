@@ -74,9 +74,18 @@ function oneSecondHandler() {
     }
 }
 
-function endGame(){
-    // to be completed 
-}
+function endGame() {
+    clearInterval(timerID);
+    questionsDiv.setAttribute("class", "hide"); 
+    timerDiv.setAttribute("class", "hide"); 
+    // Need to come back in and add a place to store the initials
+    let initials = prompt("Enter your initials to save your high score"); 
+    let playAgain = confirm("Would you like to play again?"); 
+    if (playAgain) {
+      startGame(); 
+    }
+  }
+  
 function handleAnswer(event) {
     let button = event.target; 
     if (button.textContent !== currentQuestion.ca) {
@@ -108,7 +117,10 @@ function showQuestion() {
     answer2.textContent = currentQuestion.a[1];
     answer3.textContent = currentQuestion.a[2];
     answer4.textContent = currentQuestion.a[3];
-    answer1.onclick = handleAnswer();
+    answer1.onclick = handleAnswer;
+    answer2.onclick = handleAnswer;
+    answer3.onclick = handleAnswer;
+    answer4.onclick = handleAnswer;
 }
 // USER INTERACTIONS 
 // when the user clicks start, they are taken to the first question
