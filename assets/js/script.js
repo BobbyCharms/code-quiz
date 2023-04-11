@@ -62,6 +62,7 @@ let answer4 = document.querySelector("#answer4");
 let rightWrong = document.querySelector("#rightWrong")
 let timerID; 
 let timeLeft = 120;
+let timerDiv = document.querySelector("#timer")
 let currentIndex = 0;
 let currentQuestion;
 // FUNCTIONS
@@ -100,14 +101,14 @@ function handleAnswer(event) {
     }
 }
 
-function showQuestion(){
+function showQuestion() {
     currentQuestion = questions[currentIndex];
     questionTitle.textContent = currentQuestion.q;
     answer1.textContent = currentQuestion.a[0];
     answer2.textContent = currentQuestion.a[1];
     answer3.textContent = currentQuestion.a[2];
     answer4.textContent = currentQuestion.a[3];
-    answer1.onclick = handleAnswer;
+    answer1.onclick = handleAnswer();
 }
 // USER INTERACTIONS 
 // when the user clicks start, they are taken to the first question
@@ -118,6 +119,7 @@ function startGame() {
     timeLeftEl.textContent = timeLeft;
     startDiv.setAttribute("class", "hide");
     questionsDiv.removeAttribute("class");
+    timerDiv.removeAttribute("class");
     showQuestion();
     // user is prompted to select one of the answers
     // if correct answer is selected, next question is displayed
