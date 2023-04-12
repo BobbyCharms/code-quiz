@@ -4,7 +4,7 @@
 This application allows you to test know your knowledge though a simple code quiz and record your high score. You can then view your high score and compare it with your other attempts in the game. 
 
 
-![Alt text](Screen%20Shot%202023-04-12%20at%201.28.03%20PM.png)
+![Alt text](images/Screenshot.png)
 
 ## Table of Contents
 - [Installation](#installation)
