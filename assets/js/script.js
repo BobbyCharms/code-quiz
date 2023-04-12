@@ -78,35 +78,42 @@ function endGame() {
     clearInterval(timerID);
     questionsDiv.setAttribute("class", "hide"); 
     timerDiv.setAttribute("class", "hide"); 
-    // Need to come back in and add a place to store the initials
-    let initials = prompt("Enter your initials to save your high score"); 
+    let initials = prompt("Enter your initials to save your high score");
+    let score = timeLeft;
+    let highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+    highScores.push({ initials, score });
+    localStorage.setItem("highScores", JSON.stringify(highScores));
     let playAgain = confirm("Would you like to play again?"); 
     if (playAgain) {
-      startGame(); 
+        currentIndex = 0;
+        timeLeft = 120;
+        startDiv.removeAttribute("class");
+        questionsDiv.setAttribute("class", "hide");
+        timerDiv.setAttribute("class", "hide");
     }
   }
   
 function handleAnswer(event) {
-    let button = event.target; 
+    let button = event.target;
     if (button.textContent !== currentQuestion.ca) {
-        rightWrong.textContent - "Wrong."
-        timeLeft -= 15; 
-        if (timeLeft < 0) {
-            timeLeft === O
-        }
-        timeLeftEl.textContent = timeLeft;
+      rightWrong.textContent = "Wrong.";
+      timeLeft -= 10;
+      if (timeLeft < 0) {
+        timeLeft = 0;
+      }
+      timeLeftEl.textContent = timeLeft;
     } else {
-        rightWrong.textContent - "Right!";
+      rightWrong.textContent = "Right!";
     }
     rightWrong.removeAttribute("class");
-    setTimeout(function(){
-        rightWrong.setAttribute("class", "hide");
-    }, 1000)
+    setTimeout(function() {
+      rightWrong.setAttribute("class", "hide");
+    }, 1000);
     currentIndex++;
     if (timeLeft <= 0 || currentIndex === questions.length) {
-        endGame()
+      endGame();
     } else {
-        showQuestion()
+      showQuestion();
     }
 }
 
