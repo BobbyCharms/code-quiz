@@ -126,7 +126,7 @@ function handleAnswer(event) {
     // checks if the timer is 0 or if the questions set has run out 
     if (timeLeft <= 0 || currentIndex === questions.length) {
         // if timer is 0 the run the end game function 
-      endGame();
+        setTimeout(() => { endGame(); }, 700)
     } else {
         // if timer isn't 0 and there are questions left, then advance to the next questions
       showQuestion();
@@ -151,7 +151,7 @@ function endGame() {
         timeLeft = 120;
         startDiv.removeAttribute("class");
         questionsDiv.setAttribute("class", "hide");
-        timerDiv.setAttribute("class", "hide");z
+        timerDiv.setAttribute("class", "hide");
     }
 }
 

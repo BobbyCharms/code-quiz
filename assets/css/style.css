@@ -15,6 +15,26 @@ main {
     text-align: center;
 }
 
+button {
+    padding: 5px 20px;
+    margin: 10px;
+    background-color: darkblue;
+    color: white;
+    text-align: center;
+    border-radius: 4px;
+    font-size: 1.25em;
+
+}
+
+#rightWrong {
+    margin: 10px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    border-radius: 4px;
+    font-size: 1.5em;
+}
+
 .hide {
     display: none;
 }
