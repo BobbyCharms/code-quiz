@@ -63,6 +63,7 @@ let rightWrong = document.querySelector("#rightWrong");
 let endScreen =  document.querySelector("#endScreen");
 // used to capture the information input into the initials field 
 let initials = document.querySelector("#initials")
+let submit = document.querySelector("#submit-button")
 // used as the timer
 let timerID; 
 // start time of the timer
@@ -140,6 +141,8 @@ function endGame() {
     questionsDiv.setAttribute("class", "hide");
     // shows the end screen div 
     endScreen.removeAttribute("class") 
+    let finalScoreEl = document.querySelector("#final-score");
+    finalScoreEl.textContent = timeLeft;
     // calls the highScore function to run
     highScore();
     let playAgain = confirm("Would you like to play again?"); 
@@ -158,7 +161,6 @@ function highScore(event) {
     // takes the input from the initials form and puts it in a variable 
     let initialsInput = initials.value.toUpperCase();   
     // holds the time remaining as the new score 
-    let score = timeLeft;
     let newScore = {
         score: timeLeft,
         initialsInput: initialsInput
@@ -170,6 +172,10 @@ function highScore(event) {
     // stores high score in the local storage 
     window.localStorage.setItem("highScores", JSON.stringify(highScores));
 }
+
+if (submit) {
+    submit.onclick = highScore;
+    }
   
 // USER INTERACTIONS 
 // kicks off teh game when start is pressed 
@@ -189,4 +195,7 @@ function startGame() {
     showQuestion();
 }
 
-startButton.addEventListener("click", startGame);
+if (start) {
+    startButton.addEventListener("click", startGame);
+    }
+
