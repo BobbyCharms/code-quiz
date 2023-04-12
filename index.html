@@ -28,11 +28,14 @@
         </div>
         <div id="rightWrong" class="hide">
         </div>
-        <div id="endScreen" class="hide">
-            <h2>Game Over.</h2>
-            <p>Your final score is <span id="finalScore"></span></p>
-            <p>Enter initials: <input type="text" id="initials" max="3"></p>
-            <button id="submit">Submit</button>
+        <div id="endScreen" class="hide"> 
+            <p>Complete!</p>
+            <h3>Your final score is <span id="final-score">0</span></h3>
+            <form>
+                <label for="example">Enter initials: </label>
+                <input id="initials" type="text" name="text" minlength="1" maxlength="3" required/>
+                <input type="submit" id="submit-button" value="Submit" />
+            </form>
         </div>
     </main>
     <script src="./assets/js/script.js"></script>
