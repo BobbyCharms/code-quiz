@@ -120,13 +120,13 @@ function handleAnswer(event) {
     // sets the visibility timeout to 1 second 
     setTimeout(function() {
       rightWrong.setAttribute("class", "hide");
-    }, 700);
+    }, 500);
     // advances the index to the next one, the next question
     currentIndex++;
     // checks if the timer is 0 or if the questions set has run out 
     if (timeLeft <= 0 || currentIndex === questions.length) {
         // if timer is 0 the run the end game function 
-        setTimeout(() => { endGame(); }, 700)
+        setTimeout(() => { endGame(); }, 500)
     } else {
         // if timer isn't 0 and there are questions left, then advance to the next questions
       showQuestion();

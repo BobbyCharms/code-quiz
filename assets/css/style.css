@@ -26,6 +26,10 @@ button {
 
 }
 
+li {
+    font-size: 1.25em;
+}
+
 #rightWrong {
     margin: 10px;
     background-color: black;
